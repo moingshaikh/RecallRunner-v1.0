@@ -28,3 +28,29 @@ Browser automation becomes a deterministic integration layer when:
 - Structured extraction is required
 - Execution needs to be reproducible
 - RecallRunner models how an external agent or system could reliably interact with such a site.
+
+## API Endpoints (v1.0)
+## GET /health
+Basic service health check.
+
+## POST /run/recalls
+
+Triggers a recall snapshot run.
+
+Returns structured JSON including:
+
+- metadata
+- ranked recall URLs
+- enriched detail for first item
+- execution status
+- artifact paths
+
+## GET /latest
+
+Returns the most recent execution JSON.
+
+## GET /latest.png
+
+Returns the latest full-page screenshot artifact.
+
+## Example Response (Trimmed)
