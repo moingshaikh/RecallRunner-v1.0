@@ -54,3 +54,64 @@ Returns the most recent execution JSON.
 Returns the latest full-page screenshot artifact.
 
 ## Example Response (Trimmed)
+
+```{
+  "meta": {
+    "schema_version": "1.0",
+    "run_id": "2026-02-16T01:58:05.943138",
+    "source": "recall_canada",
+    "max_items": 5
+  },
+  "list": [
+    {
+      "rank": 1,
+      "detail_url": "https://recalls-rappels.canada.ca/en/alert-recall/..."
+    }
+  ],
+  "detail": {
+    "title": "...",
+    "summary": "...",
+    "hazard": "..."
+  },
+  "status": {
+    "ok": true
+  }
+}
+```
+
+## Artifacts
+After execution:
+```outputs/
+  ├── latest.json
+  └── latest.png
+```
+Artifacts provide:
+
+- Observability
+- Replay/debug capability
+- Verifiable evidence of execution
+
+## Architecture Overview
+
+Execution flow:
+
+1. FastAPI endpoint triggered
+2. Playwright launches headless Chromium
+3. Target page loaded
+4. Recall URLs collected
+5. First item deep-dived
+6. JSON + screenshot persisted
+7. API returns structured result
+ 
+Design principle:
+Execution is deterministic. Planning is external.
+
+This mirrors how an AI agent would delegate web interaction to a tool.
+
+## Design Decisions (v1.0)
+
+- Deep-dive only first item for speed and determinism
+- Persist artifacts even on failure
+- Avoid brittle DOM selectors
+- Filter URLs using structural pattern matching
+- Headless execution for portability
