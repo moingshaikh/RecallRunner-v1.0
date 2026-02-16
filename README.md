@@ -16,3 +16,7 @@ RecallRunner navigates the Government of Canada recall portal and:
 - Generates execution artifacts (JSON + screenshot)
 - Exposes results via HTTP endpoints
 
+All results are persisted to disk for traceability.
+
+## Why This Exists
+Many public systems do not provide stable APIs.
