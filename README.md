@@ -136,3 +136,9 @@ uvicorn app.main:app --reload --port 8000
 ```
 
 Open: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+
+## Version
+
+RecallRunner v1.0
+Schema Version: 1.0
+Initial release demonstrating deterministic browser execution via API.
