@@ -115,3 +115,24 @@ This mirrors how an AI agent would delegate web interaction to a tool.
 - Avoid brittle DOM selectors
 - Filter URLs using structural pattern matching
 - Headless execution for portability
+
+## Limitations (v1.0)
+
+- Only first recall item enriched
+- No retry/backoff logic
+- No scheduling layer
+- No containerization
+- No caching or deduplication
+
+These are intentional scope boundaries for v1.0.
+
+## Quick Start
+
+```python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+playwright install
+uvicorn app.main:app --reload --port 8000
+```
+
+Open: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
